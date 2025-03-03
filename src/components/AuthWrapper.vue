@@ -3,13 +3,14 @@
     v-if="props.page === 'register'"
     class="bg-gray-200 flex justify-center items-center h-screen"
   >
-    <div class="bg-sky-400 w-1/2 rounded-3xl h-[650px] overflow-hidden shadow-lg flex">
+    <div class="bg-primary w-1/2 rounded-3xl h-[650px] overflow-hidden shadow-lg flex">
       <div
-        class="animate-slide-in bg-white w-1/2 px-8 py-10 h-full flex justify-center items-center rounded-r-3xl"
+        class="animate-slide-in bg-white w-1/2 px-8 py-10 h-full flex justify-center items-center rounded-3xl shadow-2xl"
       >
         <slot></slot>
       </div>
-      <div class="w-1/2 flex flex-col items-center px-8 justify-center gap-10">
+      <div class="animate-pop-in w-1/2 flex flex-col items-center px-8 justify-center gap-10">
+        <img class="w-48" src="../assets/ppay.svg" alt="ppay" />
         <div class="text-white text-2xl font-semibold text-center max-w-80">
           {{ text }}
         </div>
@@ -21,8 +22,9 @@
     </div>
   </div>
   <div v-if="props.page === 'login'" class="bg-gray-200 flex justify-center items-center h-screen">
-    <div class="bg-sky-400 w-1/2 flex justify-end rounded-3xl h-[650px] overflow-hidden shadow-lg">
-      <div class="w-1/2 flex flex-col items-center px-8 justify-center gap-10">
+    <div class="bg-primary w-1/2 flex justify-end rounded-3xl h-[650px] overflow-hidden shadow-lg">
+      <div class="animate-pop-out w-1/2 flex flex-col items-center px-8 justify-center gap-10">
+        <img class="w-48" src="../assets/ppay.svg" alt="ppay" />
         <div class="text-white text-2xl font-semibold text-center max-w-80">
           {{ text2 }}
         </div>
@@ -32,7 +34,7 @@
         </div>
       </div>
       <div
-        class="animate-slide-out bg-white w-1/2 px-8 py-10 h-full flex justify-center items-center rounded-l-3xl"
+        class="animate-slide-out bg-white w-1/2 px-8 py-10 h-full flex justify-center items-center rounded-3xl shadow-2xl"
       >
         <slot></slot>
       </div>
@@ -55,7 +57,7 @@ const props = defineProps(['page'])
 }
 
 .animate-slide-in {
-  animation: slideIn 0.8s ease-out forwards;
+  animation: slideIn 1s ease-out;
 }
 
 @keyframes slideOut {
@@ -68,6 +70,32 @@ const props = defineProps(['page'])
 }
 
 .animate-slide-out {
-  animation: slideOut 0.8s ease-out forwards;
+  animation: slideOut 1s ease-out;
+}
+
+@keyframes popIn {
+  from {
+    transform: translateX(-500px);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.animate-pop-in {
+  animation: popIn 1s ease-out;
+}
+
+@keyframes popOut {
+  from {
+    transform: translateX(500px);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.animate-pop-out {
+  animation: popOut 1s ease-out;
 }
 </style>

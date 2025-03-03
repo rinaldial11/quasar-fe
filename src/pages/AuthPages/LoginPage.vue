@@ -5,6 +5,12 @@
         <div>
           <span class="text-3xl font-semibold">Welcome Back! 👋</span>
         </div>
+        <div>
+          <div class="flex flex-col gap-2">
+            <button class="border w-full py-2 rounded-3xl shadow-md">Sign In With Google</button>
+            <button class="border w-full py-2 rounded-3xl shadow-md">Sign In With Facebook</button>
+          </div>
+        </div>
         <form class="flex flex-col gap-3" action="">
           <div class="flex flex-col gap-3">
             <label for="email">Email</label>
