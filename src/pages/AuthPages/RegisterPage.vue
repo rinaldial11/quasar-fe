@@ -3,7 +3,13 @@
     <AuthWrapper :page="'register'">
       <div class="flex flex-col gap-8 w-full">
         <div>
-          <span>SIGN UP!</span>
+          <span class="text-3xl font-semibold">SIGN UP!</span>
+        </div>
+        <div>
+          <div class="flex flex-col gap-2">
+            <button class="border w-full py-2 rounded-3xl shadow-md">Sign In With Google</button>
+            <button class="border w-full py-2 rounded-3xl shadow-md">Sign In With Facebook</button>
+          </div>
         </div>
         <form class="flex flex-col gap-3" action="">
           <div class="flex flex-col gap-3">
@@ -13,7 +19,7 @@
               type="email"
               v-model="email"
               label="Your Email"
-              :rules="[(val) => (val && val.length > 0) || 'Email required']"
+              :rules="[(val) => val.length > 8 || 'Email required']"
             />
           </div>
           <div class="flex flex-col gap-3">
@@ -23,7 +29,7 @@
               v-model="password"
               filled
               :type="isPwd ? 'password' : 'text'"
-              :rules="[(val) => (val && val.length > 6) || 'Password required']"
+              :rules="[(val) => val.length > 6 || 'Password required']"
             >
               <template v-slot:append>
                 <q-icon
@@ -41,12 +47,6 @@
             <q-btn class="w-full h-full" label="Register" type="submit" color="primary" />
           </div>
         </form>
-        <div>
-          <div class="flex flex-col gap-2">
-            <button class="border w-full py-2 rounded-3xl shadow-md">Sign In With Google</button>
-            <button class="border w-full py-2 rounded-3xl shadow-md">Sign In With Facebook</button>
-          </div>
-        </div>
       </div>
     </AuthWrapper>
   </q-page>

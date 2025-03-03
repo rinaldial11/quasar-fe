@@ -3,7 +3,7 @@
     <AuthWrapper :page="'login'">
       <div class="flex flex-col w-full gap-8">
         <div>
-          <span>Welcome Back!</span>
+          <span class="text-3xl font-semibold">Welcome Back! 👋</span>
         </div>
         <form class="flex flex-col gap-3" action="">
           <div class="flex flex-col gap-3">
@@ -34,11 +34,8 @@
               </template>
             </q-input>
           </div>
-          <div>
-            <q-checkbox v-model="tos" label="I accept terms and conditions" />
-          </div>
           <div class="h-12">
-            <q-btn class="w-full h-full" label="Register" type="submit" color="primary" />
+            <q-btn class="w-full h-full" label="Login" type="submit" color="primary" />
           </div>
         </form>
       </div>
@@ -51,5 +48,4 @@ import AuthWrapper from '../../components/AuthWrapper.vue'
 
 const password = ref('')
 const isPwd = ref(true)
-const tos = ref(false)
 </script>
