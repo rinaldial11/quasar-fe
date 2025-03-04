@@ -9,7 +9,16 @@
         <form class="flex flex-col gap-3" @submit.prevent="register">
           <div class="flex flex-col gap-3">
             <label for="email">Email</label>
-            <q-input filled type="email" v-model="email" label="Your Email" />
+            <q-input
+              filled
+              type="email"
+              v-model="email"
+              label="Your Email"
+              :rules="[
+                (val) => val.includes('@') || 'Email must contain @',
+                (val) => val.length >= 8 || 'Email must be at least 8 characters',
+              ]"
+            />
           </div>
           <div class="flex flex-col gap-3">
             <label for="password">Password</label>
@@ -42,11 +51,15 @@
 </template>
 <script setup>
 import { ref } from 'vue'
-import AuthWrapper from '../../components/AuthWrapper.vue'
 import { useRegisterStore } from 'src/stores/example-store'
+import { useRouter } from 'vue-router'
+import { useQuasar } from 'quasar'
+import AuthWrapper from '../../components/AuthWrapper.vue'
 import SocmedSignIn from '../../components/SignInWith.vue'
 
 const registerStore = useRegisterStore()
+const router = useRouter()
+const $q = useQuasar()
 
 const email = ref('')
 const password = ref('')
@@ -62,14 +75,37 @@ function register() {
   const foundUser = registerStore.user.find((v) => v.email === user.email)
 
   if (user.email === '' && user.password === '') {
-    window.alert('data must be fill')
+    $q.notify({
+      type: 'warning',
+      message: 'Form must be fill',
+      timeout: 2000,
+      position: 'top',
+    })
   } else if (tos.value === false) {
-    window.alert('you must agree the terms and conditions')
+    $q.notify({
+      type: 'warning',
+      message: 'You must agree the terms and conditions',
+      timeout: 2000,
+      position: 'top',
+    })
   } else if (foundUser) {
-    window.alert('Email not available')
+    $q.notify({
+      type: 'warning',
+      message: 'Email is not available',
+      timeout: 2000,
+      position: 'top',
+    })
   } else {
     registerStore.register(user)
-    window.alert(`${user.email} registered`)
+    $q.notify({
+      type: 'positive',
+      message: 'Register success',
+      timeout: 2000,
+      position: 'top',
+    })
+    setTimeout(() => {
+      router.push('/auth/login')
+    }, 2000)
   }
 }
 </script>
