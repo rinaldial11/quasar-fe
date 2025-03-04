@@ -39,7 +39,11 @@
             </q-input>
           </div>
           <div>
-            <q-checkbox v-model="tos" label="I accept terms and conditions" />
+            <q-checkbox
+              v-model="tos"
+              label="I accept terms and conditions"
+              :rules="[(val) => val || 'You must agree to the terms']"
+            />
           </div>
           <div class="h-12">
             <q-btn type="submit" class="w-full h-full" label="Register" color="primary" />
