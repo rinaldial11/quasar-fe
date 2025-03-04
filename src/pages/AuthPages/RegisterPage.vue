@@ -6,7 +6,7 @@
           <span class="text-3xl font-semibold">SIGN UP!</span>
         </div>
         <SocmedSignIn />
-        <form class="flex flex-col gap-3" @submit.prevent="register">
+        <q-form class="flex flex-col gap-3" @submit="register">
           <div class="flex flex-col gap-3">
             <label for="email">Email</label>
             <q-input
@@ -15,7 +15,7 @@
               v-model="email"
               label="Your Email"
               :rules="[
-                (val) => val.includes('@') || 'Email must contain @',
+                (val) => val.includes('@') || 'Invalid email format, must contain @',
                 (val) => val.length >= 8 || 'Email must be at least 8 characters',
               ]"
             />
@@ -48,7 +48,7 @@
           <div class="h-12">
             <q-btn type="submit" class="w-full h-full" label="Register" color="primary" />
           </div>
-        </form>
+        </q-form>
       </div>
     </AuthWrapper>
   </q-page>
@@ -108,7 +108,7 @@ function register() {
       position: 'top',
     })
     setTimeout(() => {
-      router.push('/auth/login')
+      router.push('/login')
     }, 2000)
   }
 }
