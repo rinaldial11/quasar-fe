@@ -49,11 +49,13 @@
 <script setup>
 import { ref } from 'vue'
 import { useRegisterStore } from 'src/stores/example-store'
+import { useRouter } from 'vue-router'
 import { useQuasar } from 'quasar'
 import AuthWrapper from '../../components/AuthWrapper.vue'
 import SocmedSignIn from '../../components/SignInWith.vue'
 
 const registerStore = useRegisterStore()
+const router = useRouter()
 const $q = useQuasar()
 
 const email = ref('')
@@ -91,6 +93,9 @@ function login() {
       timeout: 2000,
       position: 'top',
     })
+    setTimeout(() => {
+      router.push('/')
+    }, 2000)
   }
 }
 </script>

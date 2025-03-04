@@ -16,7 +16,7 @@
         </div>
         <div class="flex flex-col gap-3">
           <div class="text-white font-semibold">Already have an account?</div>
-          <q-btn to="/login" text-color="primary" color="white" label="Sign In" />
+          <q-btn to="/auth/login" text-color="primary" color="white" label="Sign In" />
         </div>
       </div>
     </div>
@@ -30,7 +30,7 @@
         </div>
         <div class="flex flex-col gap-3">
           <div class="text-white font-semibold">Create account</div>
-          <q-btn to="/register" text-color="primary" color="white" label="Sign Up" />
+          <q-btn to="/auth/register" text-color="primary" color="white" label="Sign Up" />
         </div>
       </div>
       <div

@@ -7,6 +7,12 @@ const routes = [
         path: '',
         component: () => import('pages/IndexPage.vue'),
       },
+    ],
+  },
+  {
+    path: '/auth',
+    component: () => import('layouts/AuthLayout.vue'),
+    children: [
       {
         path: 'register',
         component: () => import('pages/AuthPages/RegisterPage.vue'),
