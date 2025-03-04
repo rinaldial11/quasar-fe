@@ -5,22 +5,11 @@
         <div>
           <span class="text-3xl font-semibold">SIGN UP!</span>
         </div>
-        <div>
-          <div class="flex flex-col gap-2">
-            <button class="border w-full py-2 rounded-3xl shadow-md">Sign In With Google</button>
-            <button class="border w-full py-2 rounded-3xl shadow-md">Sign In With Facebook</button>
-          </div>
-        </div>
-        <form class="flex flex-col gap-3" action="">
+        <SocmedSignIn />
+        <form class="flex flex-col gap-3" @submit.prevent="register">
           <div class="flex flex-col gap-3">
             <label for="email">Email</label>
-            <q-input
-              filled
-              type="email"
-              v-model="email"
-              label="Your Email"
-              :rules="[(val) => val.length > 8 || 'Email required']"
-            />
+            <q-input filled type="email" v-model="email" label="Your Email" />
           </div>
           <div class="flex flex-col gap-3">
             <label for="password">Password</label>
@@ -44,7 +33,7 @@
             <q-checkbox v-model="tos" label="I accept terms and conditions" />
           </div>
           <div class="h-12">
-            <q-btn class="w-full h-full" label="Register" type="submit" color="primary" />
+            <q-btn type="submit" class="w-full h-full" label="Register" color="primary" />
           </div>
         </form>
       </div>
@@ -54,8 +43,29 @@
 <script setup>
 import { ref } from 'vue'
 import AuthWrapper from '../../components/AuthWrapper.vue'
+import { useRegisterStore } from 'src/stores/example-store'
+import SocmedSignIn from '../../components/SignInWith.vue'
 
+const registerStore = useRegisterStore()
+
+const email = ref('')
 const password = ref('')
 const isPwd = ref(true)
 const tos = ref(false)
+
+function register() {
+  const user = {
+    email: email.value,
+    password: password.value,
+  }
+
+  if (user.email === '' && user.password === '') {
+    window.alert('data must be fill')
+  } else if (tos.value === false) {
+    window.alert('you must agree the terms and conditions')
+  } else {
+    registerStore.register(user)
+    window.alert(`${user.email} registered`)
+  }
+}
 </script>

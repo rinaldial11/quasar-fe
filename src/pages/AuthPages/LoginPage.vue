@@ -5,12 +5,7 @@
         <div>
           <span class="text-3xl font-semibold">Welcome Back! 👋</span>
         </div>
-        <div>
-          <div class="flex flex-col gap-2">
-            <button class="border w-full py-2 rounded-3xl shadow-md">Sign In With Google</button>
-            <button class="border w-full py-2 rounded-3xl shadow-md">Sign In With Facebook</button>
-          </div>
-        </div>
+        <SocmedSignIn />
         <form class="flex flex-col gap-3" action="">
           <div class="flex flex-col gap-3">
             <label for="email">Email</label>
@@ -51,6 +46,7 @@
 <script setup>
 import { ref } from 'vue'
 import AuthWrapper from '../../components/AuthWrapper.vue'
+import SocmedSignIn from '../../components/SignInWith.vue'
 
 const password = ref('')
 const isPwd = ref(true)
