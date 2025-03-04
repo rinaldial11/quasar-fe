@@ -55,14 +55,18 @@ const tos = ref(false)
 
 function register() {
   const user = {
-    email: email.value,
+    email: email.value.toLowerCase(),
     password: password.value,
   }
+
+  const foundUser = registerStore.user.find((v) => v.email === user.email)
 
   if (user.email === '' && user.password === '') {
     window.alert('data must be fill')
   } else if (tos.value === false) {
     window.alert('you must agree the terms and conditions')
+  } else if (foundUser) {
+    window.alert('Email not available')
   } else {
     registerStore.register(user)
     window.alert(`${user.email} registered`)
