@@ -2,7 +2,7 @@
   <div>
     <div class="flex flex-col gap-2">
       <button
-        class="border w-full py-2 rounded-3xl shadow-md flex items-center justify-center gap-3"
+        class="border w-full py-2 rounded-3xl shadow-md flex items-center justify-center gap-3 hover:bg-gray-200"
         v-for="item in social"
         :key="item.icons"
       >

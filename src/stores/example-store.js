@@ -18,13 +18,18 @@ export const useCounterStore = defineStore('counter', {
 
 export const useRegisterStore = defineStore('register', {
   state: () => ({
-    user: [{}],
+    user: [],
   }),
 
   actions: {
     register(user) {
       this.user.push(user)
     },
+  },
+
+  persist: {
+    enabled: true,
+    storage: localStorage,
   },
 })
 
