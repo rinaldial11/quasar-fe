@@ -107,9 +107,7 @@ function register() {
       timeout: 2000,
       position: 'top',
     })
-    setTimeout(() => {
-      router.push('/login')
-    }, 2000)
+    router.push('/auth/login')
   }
 }
 </script>

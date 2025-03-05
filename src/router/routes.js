@@ -7,6 +7,14 @@ const routes = [
         path: '',
         component: () => import('pages/IndexPage.vue'),
       },
+      {
+        path: 'dashboard',
+        component: () => import('pages/ContentPages/DashboardPage.vue'),
+      },
+      {
+        path: 'profile',
+        component: () => import('pages/ContentPages/ProfilePage.vue'),
+      },
     ],
   },
   {

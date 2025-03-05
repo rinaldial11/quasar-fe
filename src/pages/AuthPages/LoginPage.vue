@@ -91,11 +91,9 @@ function login() {
       type: 'positive',
       message: 'Log in success',
       timeout: 2000,
-      position: 'top',
+      position: 'bottom',
     })
-    setTimeout(() => {
-      router.push('/')
-    }, 2000)
+    router.push('/')
   }
 }
 </script>

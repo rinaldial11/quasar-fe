@@ -1,5 +1,5 @@
 <template>
-  <q-layout view="hHh LpR fFf">
+  <q-layout class="bg-gray-200" view="hHh LpR fFf">
     <q-header
       reveal
       bordered
@@ -20,11 +20,11 @@
         </div>
       </q-toolbar>
     </q-header>
-    <q-drawer class="px-5" show-if-above v-model="leftDrawerOpen" side="left" bordered>
+    <q-drawer show-if-above v-model="leftDrawerOpen" side="left">
       <q-scroll-area class="fit">
         <q-list>
           <template v-for="(menuItem, index) in menuList" :key="index">
-            <q-item clickable :active="menuItem.label === 'Outbox'" v-ripple>
+            <q-item clickable :to="menuItem.path" :active="route.path === menuItem.path" v-ripple>
               <q-item-section>
                 {{ menuItem.label }}
               </q-item-section>
@@ -43,19 +43,25 @@
 
 <script setup>
 import { ref } from 'vue'
+import { useRoute } from 'vue-router'
+
+const route = useRoute()
 
 const menuList = [
   {
     label: 'Landing Page',
-    separator: true,
+    separator: false,
+    path: '/',
   },
   {
     label: 'Dashboard',
-    separator: true,
+    separator: false,
+    path: '/dashboard',
   },
   {
     label: 'Profile',
-    separator: true,
+    separator: false,
+    path: '/profile',
   },
 ]
 
