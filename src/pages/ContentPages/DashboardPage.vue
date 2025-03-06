@@ -42,10 +42,28 @@
           <div class="w-3/5 border border-gray-200 rounded p-5">
             <chart-component />
           </div>
-          <div class="w-1/3 border border-gray-200 rounded p-5">
+          <div class="flex flex-col gap-5 w-1/3 border border-gray-200 rounded p-5">
             <div class="flex justify-between items-center">
               <div class="text-base font-medium">Transaction History</div>
               <button class="text-xs text-blue">See All</button>
+            </div>
+            <div class="flex flex-col gap-5">
+              <div
+                v-for="(_, index) in Array(6)"
+                :key="index"
+                class="flex justify-between items-center"
+              >
+                <div class="flex gap-10">
+                  <q-avatar rounded>
+                    <img src="https://cdn.quasar.dev/img/avatar.png" />
+                  </q-avatar>
+                  <div class="flex flex-col justify-between">
+                    <div class="font-semibold">Floyd Miles</div>
+                    <div class="font-light text-gray-500">Send</div>
+                  </div>
+                </div>
+                <div class="text-green">+Rp50.000</div>
+              </div>
             </div>
           </div>
         </div>
