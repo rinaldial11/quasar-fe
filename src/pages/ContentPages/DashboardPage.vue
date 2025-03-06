@@ -59,10 +59,12 @@
                   </q-avatar>
                   <div class="flex flex-col justify-between">
                     <div class="font-semibold">Floyd Miles</div>
-                    <div class="font-light text-gray-500">Send</div>
+                    <div v-if="index % 2 === 0" class="font-light text-gray-500">Send</div>
+                    <div v-if="index % 2 !== 0" class="font-light text-gray-500">transfer</div>
                   </div>
                 </div>
-                <div class="text-green">+Rp50.000</div>
+                <div v-if="index % 2 === 0" class="text-red">-Rp50.000</div>
+                <div v-if="index % 2 !== 0" class="text-green">+Rp50.000</div>
               </div>
             </div>
           </div>
