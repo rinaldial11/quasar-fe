@@ -9,9 +9,9 @@
       <q-toolbar>
         <q-btn dense flat round icon="menu" @click="toggleLeftDrawer" />
         <q-toolbar-title>
-          <button to="/" class="w-24 flex items-center">
+          <q-btn to="/" class="w-32 flex items-center" unelevated="">
             <img class="w-full" src="../assets//ppay.svg" alt="" />
-          </button>
+          </q-btn>
         </q-toolbar-title>
         <q-space />
         <div class="flex gap-4">
@@ -22,9 +22,15 @@
     </q-header>
     <q-drawer show-if-above v-model="leftDrawerOpen" side="left">
       <q-scroll-area class="fit">
-        <q-list>
+        <q-list class="pt-5 pl-5 pr-3">
           <template v-for="(menuItem, index) in menuList" :key="index">
-            <q-item clickable :to="menuItem.path" :active="route.path === menuItem.path" v-ripple>
+            <q-item
+              clickable
+              :to="menuItem.path"
+              :active="route.path === menuItem.path"
+              v-ripple
+              active-class="border-l-[6px] border-primary bg-sky-100 rounded-md border-l"
+            >
               <q-item-section>
                 {{ menuItem.label }}
               </q-item-section>

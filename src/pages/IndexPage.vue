@@ -2,6 +2,9 @@
   <q-page>
     <content-wrapper>
       <div class="flex flex-col gap-8 py-20 items-center justify-center">
+        <div class="max-w-80 mb-20">
+          <img src="../assets/ppay_invert.svg" alt="ppay" />
+        </div>
         <div class="text-5xl">Smart Way to Your Financial Business</div>
         <div class="text-base font-light">
           We bring you a mobile app for banking problems that oftenly wasting much of your times.
