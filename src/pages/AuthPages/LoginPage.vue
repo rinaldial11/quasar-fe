@@ -48,7 +48,7 @@
 </template>
 <script setup>
 import { ref } from 'vue'
-import { useRegisterStore } from 'src/stores/example-store'
+import { useRegisterStore } from 'src/stores/userStore'
 import { useRouter } from 'vue-router'
 import { useQuasar } from 'quasar'
 import AuthWrapper from '../../components/AuthWrapper.vue'
