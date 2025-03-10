@@ -4,7 +4,7 @@
       <div class="flex flex-col gap-10 w-full">
         <div class="flex gap-5 justify-between w-full px-20">
           <div
-            class="w-1/3 border border-gray-200 rounded p-5 flex flex-col items-start justify-center gap-5"
+            class="initPop w-1/3 border border-gray-200 rounded p-5 flex flex-col items-start justify-center gap-5"
           >
             <div class="flex gap-3 items-center">
               <oh-vue-icon class="text-primary" name="md-accountbalancewallet-outlined" />
@@ -22,7 +22,9 @@
               </div>
             </div>
           </div>
-          <div class="w-3/5 border border-gray-200 rounded p-5 flex items-center justify-between">
+          <div
+            class="initPop w-3/5 border border-gray-200 rounded p-5 flex items-center justify-between"
+          >
             <div class="text-base font-medium">Fast Service</div>
             <div class="flex gap-5">
               <div class="w-28">
@@ -42,7 +44,7 @@
           <div class="w-3/5 border border-gray-200 rounded p-5">
             <chart-component />
           </div>
-          <div class="flex flex-col gap-5 w-1/3 border border-gray-200 rounded p-5">
+          <div class="initPop flex flex-col gap-5 w-1/3 border border-gray-200 rounded p-5">
             <div class="flex justify-between items-center">
               <div class="text-base font-medium">Transaction History</div>
               <button class="text-xs text-blue">See All</button>
@@ -81,3 +83,17 @@ import ChartComponent from 'src/components/ChartComponent.vue'
 
 addIcons(MdAccountbalancewalletOutlined, BiSendFill, FaMoneyBill)
 </script>
+<style>
+@keyframes pop {
+  from {
+    transform: scale(0.5);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.initPop * {
+  animation: pop 0.3s ease-in-out;
+}
+</style>

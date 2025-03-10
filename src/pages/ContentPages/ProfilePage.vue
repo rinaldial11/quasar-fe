@@ -2,10 +2,11 @@
   <q-page>
     <content-wrapper>
       <div class="flex flex-col w-full px-20 gap-10 rounded">
-        <div class="text-base font-medium flex gap-3 items-center">
-          <oh-vue-icon name="bi-person-fill" scale="1.5" class="text-primary" /> Profile
+        <div class="init text-base font-medium flex gap-3 items-center">
+          <oh-vue-icon name="bi-person-fill" scale="1.5" class="text-primary" />
+          <span>Profile</span>
         </div>
-        <div class="border border-gray-200 flex flex-col px-8 py-10 gap-5">
+        <div class="init border border-gray-200 flex flex-col px-8 py-10 gap-5">
           <div class="text-base font-medium">Profile Picture</div>
           <div class="flex gap-5">
             <div>
@@ -34,16 +35,16 @@
             </div>
             <div class="flex flex-col gap-5">
               <label for="fullname">Email</label>
-              <q-input filled v-model="fullname" type="text" label="Your Email" />
+              <q-input filled v-model="email" type="text" label="Your Email" />
             </div>
-            <div class="flex gap-5">
+            <div class="flex gap-10">
               <div class="flex flex-col gap-5 flex-1">
                 <label for="fullname">Change Password</label>
-                <q-input filled v-model="fullname" type="text" label="New Password" />
+                <q-input filled v-model="newpassword" type="text" label="New Password" />
               </div>
               <div class="flex flex-col gap-5 flex-1">
                 <label for="fullname">Confirm Password</label>
-                <q-input filled v-model="fullname" type="text" label="Existing Password" />
+                <q-input filled v-model="password" type="text" label="Existing Password" />
               </div>
             </div>
             <q-btn class="w-full h-12" label="Submit" type="submit" color="primary" />
@@ -61,3 +62,17 @@ import { BiPersonFill } from 'oh-vue-icons/icons'
 
 addIcons(BiPersonFill)
 </script>
+<style>
+@keyframes up {
+  from {
+    transform: translateY(20px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.init * {
+  animation: up 0.3s ease-in-out;
+}
+</style>

@@ -1,7 +1,7 @@
 <template>
   <q-page>
     <content-wrapper>
-      <div class="flex flex-col gap-8 py-20 items-center justify-center">
+      <div class="initPop flex flex-col gap-8 py-20 items-center justify-center">
         <div class="max-w-80 mb-20">
           <img src="../assets/ppay_invert.svg" alt="ppay" />
         </div>
@@ -22,10 +22,10 @@
           </div>
         </div>
       </div>
-      <div class="bg-gray-200 px-10 py-5 w-full flex justify-evenly">
+      <div class="initPop bg-gray-200 px-10 py-5 w-full flex justify-evenly">
         <img v-for="(item, index) in listIcons" :src="item.iconPath" :key="index" />
       </div>
-      <div class="flex gap-48 py-20 items-center">
+      <div class="initPop flex gap-48 py-20 items-center">
         <div class="flex flex-col gap-10">
           <div class="text-4xl">About The Aplication</div>
           <div class="max-w-96 text-lg font-light">
@@ -106,3 +106,17 @@ const listIcons = [
   },
 ]
 </script>
+<style>
+@keyframes pop {
+  from {
+    transform: scale(0.5);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.initPop * {
+  animation: pop 0.3s ease-in-out;
+}
+</style>
